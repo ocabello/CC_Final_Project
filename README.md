@@ -5,9 +5,9 @@ Visualizing global interconnectedness through flight and airport data
 
 ## To Do List
 
-~~1. link data from routes.json to data from airports.json~~
+1. ~~link data from routes.json to data from airports.json~~
 
-~~2. create classes for both routes and airports with basic shapes for each~~
+2. ~~create classes for both routes and airports with basic shapes for each~~
 
 3. figure out how to efficiently eliminate duplicate data
 

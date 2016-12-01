@@ -1,6 +1,6 @@
 # CC_Final_Project
 
-## Gobalization
+## Globalization
 Visualizing global interconnectedness through flight and airport data
 
 ## To Do List

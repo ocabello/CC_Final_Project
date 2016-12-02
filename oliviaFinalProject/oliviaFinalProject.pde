@@ -1,3 +1,5 @@
+import org.gicentre.utils.gui.TextPopup;
+
 JSONObject airportData;
 JSONObject routeData;
 
@@ -6,9 +8,13 @@ String[] originAirport = new String[67663];
 String[] destAirport = new String[67663];
 
 Routes[] routes = new Routes[8107];      //create an array of routes objects
+Airports[] airports = new Airports[8107];      //create an array of airports objects
+
+TextPopup[] label = new TextPopup[8107];
 
 void setup() {
   size(1500, 1000);
+  PFont font = createFont("serif", 12);
 
   airportData = loadJSONObject("data/airports.json");
   routeData = loadJSONObject("data/routes.json");
@@ -17,8 +23,14 @@ void setup() {
   destAirport = getDestAirports(routeData);
 
   for (int i=0; i<countries.length; i++) {
+    airports[i] = new Airports(countries[i], random(width), random(height));
     routes[i] = new Routes(countries[i], originAirport[i], destAirport[i], random(width), random(height));
+    label[i] = new TextPopup(this, font, 50, 80);
+    label[i].setTextSize(24);
+    label[i].setInternalMargin(18,9);
+    label[i].addText(countries[i]);
   }
+    
   
 }
 
@@ -35,8 +47,20 @@ void draw() {
    */
    
    for(int i=0; i<routes.length; i++){
-     routes[i].displayAirport();
+     airports[i].displayAirport();
      routes[i].displayRoute();
+     routes[i].motionY();
+     routes[i].motionX();
+     routes[i].update();
+     routes[i].checkEdges();
+     routes[i].unite();
+     airports[i].unite();
+
+    // need to figure out why the labels aren't displaying
+    
+    // label[i].draw();
+    // label[i].setIsActive(!label[i].getIsActive());
+
    }
 
 }

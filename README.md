@@ -14,7 +14,7 @@ Visualizing global interconnectedness through flight and airport data
 
 4. ~~add stage #1 motion to routes/airports shapes~~
 
-5. add stage #2 motion after mousePressed/keyPressed
+5. ~~add stage #2 motion after mousePressed/keyPressed~~
 
 6. ~~look into integrating giCentre library~~
 
@@ -23,9 +23,12 @@ Visualizing global interconnectedness through flight and airport data
 
 ## Bugs To Fix
 
-1. figure out why giCentre labels aren't displaying
+1. ~~figure out why giCentre labels aren't displaying~~
 
 2. remove motion from routes objects when they're moving to the center
 
-3. add motion to airports and routes objects when user releases key
+3. ~~add motion to airports and routes objects when user releases key~~
+
+4. optimize code to improve data loading speed
+
 

@@ -18,6 +18,7 @@ private TextPopup[] label = new TextPopup[8107];
 
 void setup() {
   size(1500, 1000);
+
   PFont font = createFont("serif", 12);
 
   airportData = loadJSONObject("data/airports.json");
@@ -53,7 +54,9 @@ void setup() {
 
 void draw() {
   background(255);
-
+  if (mousePressed){
+    background(255, 215, 0);
+  }
   /*
   for (int i=0; i<countries.length; i++) {   //display each value in array of countries
    //println(countries[i]);

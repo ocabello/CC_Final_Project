@@ -11,6 +11,7 @@ class Airports {    //will handle all the effects/info from data related to airp
   //Random r = new Random(8107);
   float currentx;
   float currenty;
+  //color currentcol;
 
   Airports(String id, float x, float y) {
     airportID = id;
@@ -18,7 +19,6 @@ class Airports {    //will handle all the effects/info from data related to airp
     yloc = y;
     currentx = xloc;
     currenty = yloc;
-    //col = color(50, 240, 32, 100);
     col = color(150, 100);
     centerX = width/2;
     centerY = height/2;
@@ -26,7 +26,8 @@ class Airports {    //will handle all the effects/info from data related to airp
 
   void displayAirport() {   //representing airports as circles
     if (mousePressed) {
-      fill(col);
+      fill(0, 255, 255, 100);
+     // fill(32, 178, 170, 100);
       ellipse(xloc, yloc, 10, 10);
       if (centerX < xloc && centerY < yloc) {       //objects will move towards the center.
         xloc += -50;                                 //the direction in which the objects will move is relative to their

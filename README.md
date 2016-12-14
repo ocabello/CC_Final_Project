@@ -20,6 +20,12 @@ Visualizing global interconnectedness through flight and airport data
 
 7. ~~add effects through color~~
 
+8. Cluster airports according to continent
+
+9. Add labels with airport names
+
+10. For interactive part: add more motion (circular? rotation?)
+
 
 ## Bugs To Fix
 

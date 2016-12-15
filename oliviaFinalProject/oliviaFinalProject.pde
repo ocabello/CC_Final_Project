@@ -5,6 +5,7 @@ JSONObject airportData;
 JSONObject routeData;
 
 String[] countries = new String[8107];
+String[] continents = new String[8107];
 String[] originAirport = new String[67663];
 String[] destAirport = new String[67663];
 
@@ -28,7 +29,8 @@ void setup() {
   for(int i=0; i<countries.length; i++) {
   countries[i] = getCountry(airportData);              //store all the data in arrays
   } */
-  countries = getCountry(airportData);              //store all the data in arrays
+  countries = getCountry(airportData);  //store all the data in arrays
+  continents = getContinent(airportData);
   originAirport = getOriginAirports(routeData);
   destAirport = getDestAirports(routeData);
 
@@ -40,8 +42,9 @@ void setup() {
 */
 
   for (int i=0; i<countries.length; i++) {
-    airports[i] = new Airports(countries[i], random(width), random(height));
-    routes[i] = new Routes(countries[i], originAirport[i], destAirport[i], random(width), random(height));
+    //println(continents[7]);
+    airports[i] = new Airports(countries[i],continents[i], random(width), random(height));
+    routes[i] = new Routes(countries[i], continents[i], originAirport[i], destAirport[i], random(width), random(height));
    // label[i] = new TextPopup(this, font, 50, 80);
     //label[i].setTextSize(24);
    // label[i].setInternalMargin(18,9);
@@ -53,7 +56,7 @@ void setup() {
 }
 
 void draw() {
-  background(255);
+  background(50);
   if (mousePressed){
     background(255, 215, 0);
   }
@@ -67,7 +70,10 @@ void draw() {
    */
    
    for(int i=0; i<routes.length; i++){
-     airports[i].displayAirport();
+     //airports[i].displayAirport();
+     //println(airports[2]);
+     //println(continents[7]);
+     airports[i].cluster();
      routes[i].displayRoute();
      routes[i].motionY();
      routes[i].motionX();
@@ -106,6 +112,19 @@ String[] getCountry(JSONObject data) {    //get the airport ids of all countries
     //println(airportID[i]);
   }
   return airportID;
+}
+
+String[] getContinent(JSONObject data) {    //get the airport ids of all countries in the data file
+  String[] continent = new String[8107];
+  JSONArray airports = data.getJSONArray("airports");
+  int arraySize = airports.size();
+  //println(arraySize);
+
+  for (int i=0; i< arraySize; i++) {
+    JSONObject airport = airports.getJSONObject(i);
+    continent[i] = airport.getString("FIELD11");
+  }
+  return continent;
 }
 
 String[] getOriginAirports(JSONObject data) {       //get the origin airport ids of all routes

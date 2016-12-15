@@ -9,8 +9,8 @@ class Routes extends Airports { //Routes class inherits from Airports class
   float currentvel;
   float currentspeed;
 
-  Routes(String airport, String origin, String destination, float x, float y) {
-    super(airport, x, y);                                                      //accessing constructor of Airports class
+  Routes(String airport, String continent, String origin, String destination, float x, float y) {
+    super(airport, continent, x, y);                                                      //accessing constructor of Airports class
     origAirport = origin;
     destAirport = destination;
     c = color(random(234), random(50), random(100), 50);

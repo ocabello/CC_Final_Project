@@ -10,7 +10,7 @@ Visualizing global interconnectedness through flight and airport data
 
 2. ~~create classes for both routes and airports with basic shapes for each~~
 
-3. figure out how to efficiently eliminate duplicate data
+3. ~~figure out how to efficiently eliminate duplicate data~~
 
 4. ~~add stage #1 motion to routes/airports shapes~~
 
@@ -26,7 +26,7 @@ Visualizing global interconnectedness through flight and airport data
 
 10. For interactive part: add more motion (circular? rotation?)
 
-11. Make planes move towards destination airports
+11. ~~Make planes move towards destination airports~~
 
 
 ## Bugs To Fix
@@ -37,6 +37,6 @@ Visualizing global interconnectedness through flight and airport data
 
 3. ~~add motion to airports and routes objects when user releases key~~
 
-4. optimize code to improve data loading speed
+4. ~~optimize code to improve data loading speed~~
 
 

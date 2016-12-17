@@ -18,7 +18,7 @@ private TextPopup[] label = new TextPopup[8107];
 
 
 void setup() {
-  size(1500, 1000);
+  size(1000, 1000);
 
   PFont font = createFont("serif", 12);
 
@@ -33,7 +33,6 @@ void setup() {
   continents = getContinent(airportData);
   originAirport = getOriginAirports(routeData);
   destAirport = getDestAirports(routeData);
-
 /*
   text = new TextPopup(this,font,50,80);
   text.setTextSize(24);
@@ -45,6 +44,8 @@ void setup() {
     //println(continents[7]);
     airports[i] = new Airports(countries[i],continents[i], random(width), random(height));
     routes[i] = new Routes(countries[i], continents[i], originAirport[i], destAirport[i], random(width), random(height));
+    //println(countries[i]);
+
    // label[i] = new TextPopup(this, font, 50, 80);
     //label[i].setTextSize(24);
    // label[i].setInternalMargin(18,9);
@@ -70,10 +71,9 @@ void draw() {
    */
    
    for(int i=0; i<routes.length; i++){
-     //airports[i].displayAirport();
+     airports[i].displayAirport();
      //println(airports[2]);
      //println(continents[7]);
-     airports[i].cluster();
      routes[i].displayRoute();
      routes[i].motionY();
      routes[i].motionX();
@@ -131,7 +131,7 @@ String[] getOriginAirports(JSONObject data) {       //get the origin airport ids
   String[] origAirports = new String[67663];
   JSONArray routes = data.getJSONArray("routes");
   int arraySize = routes.size();
-  //println(arraySize);
+  println(arraySize);
 
   for (int i=0; i< arraySize; i++) {
     JSONObject origin = routes.getJSONObject(i);

@@ -29,8 +29,6 @@ class Airports {    //will handle all the effects/info from data related to airp
     continent = cont;
     xloc = x;
     yloc = y;
-    currentx = xloc;
-    currenty = yloc;
     col = color(150, 100);
     centerX = width/2;
     centerY = height/2;
@@ -45,123 +43,128 @@ class Airports {    //will handle all the effects/info from data related to airp
     yposO = height/2;
     yposZ = height/3 *2;
   }
-
-  void cluster(){
+  void cluster() {
     //println(continent);
-    if (continent.equals("E")){  // E == Europe
-      println("Hello");
+    if (continent.equals("E")) {  // E == Europe
+      // println("Hello");
+      currentx = xloc;
+      currenty = yloc;
       fill(col);
-      ellipse(currentx, currenty, 10, 10);
-      if (xposE < currentx && yposE < currenty) {       //objects will move towards the center.
-        currentx += -50;                                 //the direction in which the objects will move is relative to their
-        currenty += -50;                                 //current position in the canvas.
-      } else if (xposE > currentx && yposE < currenty) {
-        currentx += 50;
-        currenty += -50;
-      } else if (xposE < currentx && yposE > currenty) {
-        currentx += -50;
-        currenty += 50;
-      } else if (xposE > currentx && yposE > currenty) {
-        currentx += 50;
-        currenty += 50;
+      ellipse(xloc, yloc, 10, 10);
+      if (xposE < xloc && yposE < yloc) {       //objects will move towards the center.
+        xloc += -50;                                 //the direction in which the objects will move is relative to their
+        yloc += -50;                                 //current position in the canvas.
+      } else if (xposE > xloc && yposE < yloc) {
+        xloc += 50;
+        yloc += -50;
+      } else if (xposE < xloc && yposE > yloc) {
+        xloc += -50;
+        yloc += 50;
+      } else if (xposE > xloc && yposE > yloc) {
+        xloc += 50;
+        yloc += 50;
       }
-    }
-     else if (continent.equals("A")){ // A == US/Canada
-      println("Hello");
+    } else if (continent.equals("A")) { // A == US/Canada
+      // println("Hello");
+      currentx = xloc;
+      currenty = yloc;
       fill(col);
-      ellipse(currentx, currenty, 10, 10);
-      if (xposA < currentx && yposA < currenty) {       //objects will move towards the center.
-        currentx += -50;                                 //the direction in which the objects will move is relative to their
-        currenty += -50;                                 //current position in the canvas.
-      } else if (xposA > currentx && yposA < currenty) {
-        currentx += 50;
-        currenty += -50;
-      } else if (xposA < currentx && yposA > currenty) {
-        currentx += -50;
-        currenty += 50;
-      } else if (xposA > currentx && yposA > currenty) {
-        currentx += 50;
-        currenty += 50;
+      ellipse(xloc, yloc, 10, 10);
+      if (xposA < xloc && yposA < yloc) {       //objects will move towards the center.
+        xloc += -50;                                 //the direction in which the objects will move is relative to their
+        yloc += -50;                                 //current position in the canvas.
+      } else if (xposA > xloc && yposA < yloc) {
+        xloc += 50;
+        yloc += -50;
+      } else if (xposA < xloc && yposA > yloc) {
+        xloc += -50;
+        yloc += 50;
+      } else if (xposA > xloc && yposA > yloc) {
+        xloc += 50;
+        yloc += 50;
       }
-    }
-     else if (continent.equals("S")){  // S == South America
-     println("Hello");
-     fill(col);
-     ellipse(currentx, currenty, 10, 10);
-     if (xposS < currentx && yposS < currenty) {       //objects will move towards the center.
-        currentx += -50;                                 //the direction in which the objects will move is relative to their
-        currenty += -50;                                 //current position in the canvas.
-      } else if (xposS > currentx && yposS < currenty) {
-        currentx += 50;
-        currenty += -50;
-      } else if (xposS < currentx && yposS > currenty) {
-        currentx += -50;
-        currenty += 50;
-      } else if (xposS > currentx && yposS > currenty) {
-        currentx += 50;
-        currenty += 50;
-      }
-    }
-     else if (continent.equals("O")){  // O == Australia
-      println("Hello");
+    } else if (continent.equals("S")) {  // S == South America
+      // println("Hello");
+      currentx = xloc;
+      currenty = yloc;
       fill(col);
-      ellipse(currentx, currenty, 10, 10);
-      if (xposO < currentx && yposO < currenty) {       //objects will move towards the center.
-        currentx += -50;                                 //the direction in which the objects will move is relative to their
-        currenty += -50;                                 //current position in the canvas.
-      } else if (xposO > currentx && yposO < currenty) {
-        currentx += 50;
-        currenty += -50;
-      } else if (xposO < currentx && yposO > currenty) {
-        currentx += -50;
-        currenty += 50;
-      } else if (xposO > currentx && yposO > currenty) {
-        currentx += 50;
-        currenty += 50;
+      ellipse(xloc, yloc, 10, 10);
+      if (xposS < xloc && yposS < yloc) {       //objects will move towards the center.
+        xloc += -50;                                 //the direction in which the objects will move is relative to their
+        yloc += -50;                                 //current position in the canvas.
+      } else if (xposS > xloc && yposS < yloc) {
+        xloc += 50;
+        yloc += -50;
+      } else if (xposS < xloc && yposS > yloc) {
+        xloc += -50;
+        yloc += 50;
+      } else if (xposS > xloc && yposS > yloc) {
+        xloc += 50;
+        yloc += 50;
       }
-    }
-     else if (continent.equals("Z")){  // Z == New Zealand
-      println("Hello");
+    } else if (continent.equals("O")) {  // O == Australia
+      //println("Hello");
+      currentx = xloc;
+      currenty = yloc;
       fill(col);
-      ellipse(currentx, currenty, 10, 10);
-      if (xposZ < currentx && yposZ < currenty) {       //objects will move towards the center.
-        currentx += -50;                                 //the direction in which the objects will move is relative to their
-        currenty += -50;                                 //current position in the canvas.
-      } else if (xposZ > currentx && yposZ < currenty) {
-        currentx += 50;
-        currenty += -50;
-      } else if (xposZ < currentx && yposZ > currenty) {
-        currentx += -50;
-        currenty += 50;
-      } else if (xposZ > currentx && yposZ > currenty) {
-        currentx += 50;
-        currenty += 50;
+      ellipse(xloc, yloc, 10, 10);
+      if (xposO < xloc && yposO < yloc) {       //objects will move towards the center.
+        xloc += -50;                                 //the direction in which the objects will move is relative to their
+        yloc += -50;                                 //current position in the canvas.
+      } else if (xposO > xloc && yposO < yloc) {
+        xloc += 50;
+        yloc += -50;
+      } else if (xposO < xloc && yposO > yloc) {
+        xloc += -50;
+        yloc += 50;
+      } else if (xposO > xloc && yposO > yloc) {
+        xloc += 50;
+        yloc += 50;
+      }
+    } else if (continent.equals("Z")) {  // Z == New Zealand
+      // println("Hello");
+      currentx = xloc;
+      currenty = yloc;
+      fill(col);
+      ellipse(xloc, yloc, 10, 10);
+      if (xposZ < xloc && yposZ < yloc) {       //objects will move towards the center.
+        xloc += -50;                                 //the direction in which the objects will move is relative to their
+        yloc += -50;                                 //current position in the canvas.
+      } else if (xposZ > xloc && yposZ < yloc) {
+        xloc += 50;
+        yloc += -50;
+      } else if (xposZ < xloc && yposZ > yloc) {
+        xloc += -50;
+        yloc += 50;
+      } else if (xposZ > xloc && yposZ > yloc) {
+        xloc += 50;
+        yloc += 50;
       }
     }
   }
 
   void displayAirport() {   //representing airports as circles
     if (mousePressed) {
-      fill(0, 255, 255, 100);
-     // fill(32, 178, 170, 100);
-      ellipse(xloc, yloc, 10, 10);
-      if (centerX < xloc && centerY < yloc) {       //objects will move towards the center.
-        xloc += -50;                                 //the direction in which the objects will move is relative to their
-        yloc += -50;                                 //current position in the canvas.
-      } else if (centerX > xloc && centerY < yloc) {
-        xloc += 50;
-        yloc += -50;
-      } else if (centerX < xloc && centerY > yloc) {
-        xloc += -50;
-        yloc += 50;
-      } else if (centerX > xloc && centerY > yloc) {
-        xloc += 50;
-        yloc += 50;
+      if (currentx != 0 && currenty !=0) {
+        fill(0, 255, 255, 100);
+        // fill(32, 178, 170, 100);
+        ellipse(currentx, currenty, 10, 10);
+        if (centerX < currentx && centerY < currenty) {       //objects will move towards the center.
+          currentx += -50;                                 //the direction in which the objects will move is relative to their
+          currenty += -50;                                 //current position in the canvas.
+        } else if (centerX > currentx && centerY < currenty) {
+          currentx += 50;
+          currenty += -50;
+        } else if (centerX < currentx && centerY > currenty) {
+          currentx += -50;
+          currenty += 50;
+        } else if (centerX > currentx && centerY > currenty) {
+          currentx += 50;
+          currenty += 50;
+        }
       }
     } else {
-      fill(col);
-      ellipse(currentx, currenty, 10, 10);
+      this.cluster();
     }
   }
-
 }

@@ -1,4 +1,4 @@
-import org.gicentre.utils.gui.TextPopup;
+//import org.gicentre.utils.gui.TextPopup;
 //import java.util.Random;
 
 JSONObject airportData;
@@ -12,15 +12,15 @@ String[] destAirport = new String[67663];
 Routes[] routes = new Routes[8107];      //create an array of routes objects
 Airports[] airports = new Airports[8107];      //create an array of airports objects
 
-private TextPopup[] label = new TextPopup[8107];
+//private TextPopup[] label = new TextPopup[8107];
 //private TextPopup text;
 
-
+PFont font;
 
 void setup() {
   size(1000, 1000);
 
-  PFont font = createFont("serif", 12);
+  font = createFont("serif", 12);
 
   airportData = loadJSONObject("data/airports.json");
   routeData = loadJSONObject("data/routes.json");
@@ -33,11 +33,12 @@ void setup() {
   continents = getContinent(airportData);
   originAirport = getOriginAirports(routeData);
   destAirport = getDestAirports(routeData);
+
 /*
-  text = new TextPopup(this,font,50,80);
-  text.setTextSize(24);
-  text.setInternalMargin(18,9);
-  text.addText("An example title",28);
+  text = new TextPopup(this,font,10,20);
+  text.setTextSize(8);
+  text.setInternalMargin(5,5);
+  text.addText("An example title",8);
 */
 
   for (int i=0; i<countries.length; i++) {
@@ -46,13 +47,13 @@ void setup() {
     routes[i] = new Routes(countries[i], continents[i], originAirport[i], destAirport[i], random(width), random(height));
     //println(countries[i]);
 
-   // label[i] = new TextPopup(this, font, 50, 80);
-    //label[i].setTextSize(24);
-   // label[i].setInternalMargin(18,9);
-   // label[i].addText("Hello World");
+  // label[i] = new TextPopup(this, font, 50, 80);
+  // label[i].setTextSize(24);
+  // label[i].setInternalMargin(18,9);
+  // label[i].addText("Hello World");
     //println(label[i]);
   }
-    
+ // text.setIsActive(true); //make sure you want to see me.    
   
 }
 
@@ -81,7 +82,7 @@ void draw() {
      routes[i].checkEdges();
      
     // need to figure out why the labels aren't displaying
-     // text.draw();
+    // text.draw();
 
      //label[i].draw();
     // label[i].setIsActive(!label[i].getIsActive());
@@ -131,7 +132,7 @@ String[] getOriginAirports(JSONObject data) {       //get the origin airport ids
   String[] origAirports = new String[67663];
   JSONArray routes = data.getJSONArray("routes");
   int arraySize = routes.size();
-  println(arraySize);
+ // println(arraySize);
 
   for (int i=0; i< arraySize; i++) {
     JSONObject origin = routes.getJSONObject(i);

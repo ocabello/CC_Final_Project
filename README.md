@@ -1,6 +1,6 @@
 # CC_Final_Project
 
-## Globalization
+## Travel and Cultural Exchange
 Visualizing global interconnectedness through flight and airport data
 
 
@@ -22,11 +22,7 @@ Visualizing global interconnectedness through flight and airport data
 
 8. ~~Cluster airports according to continent~~
 
-9. Add labels with airport names
-
-10. For interactive part: add more motion (circular? rotation?)
-
-11. ~~Make planes move towards destination airports~~
+9. ~~Make planes move towards destination airports~~
 
 
 ## Bugs To Fix

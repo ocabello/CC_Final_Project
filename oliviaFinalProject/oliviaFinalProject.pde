@@ -1,10 +1,8 @@
-//import org.gicentre.utils.gui.TextPopup;
-//import java.util.Random;
 
-JSONObject airportData;
+JSONObject airportData;      
 JSONObject routeData;
 
-String[] countries = new String[8107];
+String[] countries = new String[8107];        //initialize arrays for all data sets
 String[] continents = new String[8107];
 String[] originAirport = new String[67663];
 String[] destAirport = new String[67663];
@@ -12,55 +10,31 @@ String[] destAirport = new String[67663];
 Routes[] routes = new Routes[8107];      //create an array of routes objects
 Airports[] airports = new Airports[8107];      //create an array of airports objects
 
-//private TextPopup[] label = new TextPopup[8107];
-//private TextPopup text;
-
-PFont font;
 
 void setup() {
   size(1000, 1000);
 
-  font = createFont("serif", 12);
-
-  airportData = loadJSONObject("data/airports.json");
+  airportData = loadJSONObject("data/airports.json");  //load json files
   routeData = loadJSONObject("data/routes.json");
- /* thread("requestAirportData");
-  thread("requestRouteData");
-  for(int i=0; i<countries.length; i++) {
-  countries[i] = getCountry(airportData);              //store all the data in arrays
-  } */
-  countries = getCountry(airportData);  //store all the data in arrays
+
+  countries = getCountry(airportData);           //store all the data in arrays
   continents = getContinent(airportData);
   originAirport = getOriginAirports(routeData);
   destAirport = getDestAirports(routeData);
-
-/*
-  text = new TextPopup(this,font,10,20);
-  text.setTextSize(8);
-  text.setInternalMargin(5,5);
-  text.addText("An example title",8);
-*/
 
   for (int i=0; i<countries.length; i++) {
     //println(continents[7]);
     airports[i] = new Airports(countries[i],continents[i], random(width), random(height));
     routes[i] = new Routes(countries[i], continents[i], originAirport[i], destAirport[i], random(width), random(height));
     //println(countries[i]);
-
-  // label[i] = new TextPopup(this, font, 50, 80);
-  // label[i].setTextSize(24);
-  // label[i].setInternalMargin(18,9);
-  // label[i].addText("Hello World");
-    //println(label[i]);
   }
- // text.setIsActive(true); //make sure you want to see me.    
   
 }
 
 void draw() {
-  background(50);
+  background(50);               //gray
   if (mousePressed){
-    background(255, 215, 0);
+    background(255, 215, 0);   //background changes to yellow after mouse is pressed
   }
   /*
   for (int i=0; i<countries.length; i++) {   //display each value in array of countries
@@ -71,8 +45,8 @@ void draw() {
    }
    */
    
-   for(int i=0; i<routes.length; i++){
-     airports[i].displayAirport();
+   for(int i=0; i<routes.length; i++){   //apply Airports and Routes methods to each airport/route
+     airports[i].displayAirport();      
      //println(airports[2]);
      //println(continents[7]);
      routes[i].displayRoute();
@@ -81,25 +55,11 @@ void draw() {
      routes[i].update();
      routes[i].checkEdges();
      
-    // need to figure out why the labels aren't displaying
-    // text.draw();
-
-     //label[i].draw();
-    // label[i].setIsActive(!label[i].getIsActive());
-    //println(label[i]);
 
    }
 
 }
-/*
-void requestAirportData(){
-    airportData = loadJSONObject("data/airports.json");
-}
 
-void requestRouteData(){
-    routeData = loadJSONObject("data/routes.json");
-}
-*/
 
 String[] getCountry(JSONObject data) {    //get the airport ids of all countries in the data file
   String[] airportID = new String[8107];
@@ -153,46 +113,3 @@ String[] getDestAirports(JSONObject data) {          //get the destination airpo
   }
   return destAirports;
 }
-
-/*
-void keyPressed()
-{ 
-   // for (int i=0; i<countries.length; i++) {
-
-  if ((key == 'h') || (key == 'H'))
-  {
-    text.setIsActive(!text.getIsActive());
-  }
-  
-  if (text.getIsActive())
-  {
-    if (key== CODED)
-    {
-      int margin = text.getInternalMargin().width;
-      int border = text.getExternalMargin().width;
-    
-      if (keyCode == UP)
-      {
-        margin++;
-      }
-      else if (keyCode == DOWN)
-      {
-        margin--;
-      }
-      text.setInternalMargin(margin,margin/2);  
-    
-      if (keyCode == LEFT)
-      {
-        border-=4;
-      }
-      else if (keyCode == RIGHT)
-      {
-        border+=4;
-      }
-      text.setExternalMargin(border,border);  
-    }
-  }
-  loop();
-   // }
-} 
-*/

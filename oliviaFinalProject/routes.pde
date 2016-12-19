@@ -7,7 +7,7 @@ class Routes extends Airports { //Routes class inherits from Airports class
   float currentvel;
   float currentspeed;
 
-  Routes(String airport, String continent, String origin, String destination, float x, float y) {
+  Routes(String airport, String continent, String origin, String destination, float x, float y) { //constructor
     super(airport, continent, x, y);                                                      //accessing constructor of Airports class
     origAirport = origin;
     destAirport = destination;
@@ -17,18 +17,20 @@ class Routes extends Airports { //Routes class inherits from Airports class
     currentvel = velocity;
     currentspeed = speed;
   }
+  
+  //this method shows all the routes that go to the 5 major airports in each of the continents represented in this data set
   void moveToDest() {
     if (destAirport.equals("LGA") || destAirport.equals("LAX") || destAirport.equals("ATL") || destAirport.equals("ORD") || destAirport.equals("DFW")) {  // 
       // println(destAirport);
       // println("Hello");
       // println(continent);
-      currentx = xloc;
-      currenty = yloc;
+      currentx = xloc;        //store current x,y coordinates so that the canvas can be reset to
+      currenty = yloc;        //the planes flying towards the continents after the mouse is pressed and released
       fill(c);
       rect(xloc, yloc, 5, 10);
-      if (xposA+random(-100, 100) < xloc && yposA+random(-100, 100) < yloc) {       //objects will move towards the center.
-        xloc += -125;                                 //the direction in which the objects will move is relative to their
-        yloc += -125;                                 //current position in the canvas.
+      if (xposA+random(-100, 100) < xloc && yposA+random(-100, 100) < yloc) {
+        xloc += -125;      //shows spacing between xposA (center location of continent) and airports
+        yloc += -125;      //spacing varies according to number of airports
       } else if (xposA+random(-100, 100) > xloc && yposA+random(-100, 100) < yloc) {
         xloc += 125;
         yloc += -125;
@@ -47,9 +49,9 @@ class Routes extends Airports { //Routes class inherits from Airports class
       currenty = yloc;
       fill(c);
       rect(xloc, yloc, 5, 10);
-      if (xposE+random(-100, 100) < xloc && yposE+random(-100, 100) < yloc) {       //objects will move towards the center.
-        xloc += -100;                                 //the direction in which the objects will move is relative to their
-        yloc += -100;                                 //current position in the canvas.
+      if (xposE+random(-100, 100) < xloc && yposE+random(-100, 100) < yloc) {
+        xloc += -100;
+        yloc += -100;
       } else if (xposE+random(-100, 100) > xloc && yposE+random(-100, 100) < yloc) {
         xloc += 100;
         yloc += -100;
@@ -68,9 +70,9 @@ class Routes extends Airports { //Routes class inherits from Airports class
       currenty = yloc;
       fill(c);
       rect(xloc, yloc, 5, 10);
-      if (xposS+random(-100, 100) < xloc && yposS+random(-100, 100) < yloc) {       //objects will move towards the center.
-        xloc += -50;                                 //the direction in which the objects will move is relative to their
-        yloc += -50;                                 //current position in the canvas.
+      if (xposS+random(-100, 100) < xloc && yposS+random(-100, 100) < yloc) {
+        xloc += -50;
+        yloc += -50;
       } else if (xposS+random(-100, 100) > xloc && yposS+random(-100, 100) < yloc) {
         xloc += 50;
         yloc += -50;
@@ -89,9 +91,9 @@ class Routes extends Airports { //Routes class inherits from Airports class
       currenty = yloc;
       fill(c);
       rect(xloc, yloc, 5, 10);
-      if (xposO+random(-100, 100) < xloc && yposO+random(-100, 100) < yloc) {       //objects will move towards the center.
-        xloc += -35;                                 //the direction in which the objects will move is relative to their
-        yloc += -35;                                 //current position in the canvas.
+      if (xposO+random(-100, 100) < xloc && yposO+random(-100, 100) < yloc) {
+        xloc += -35;
+        yloc += -35;
       } else if (xposO+random(-100, 100) > xloc && yposO+random(-100, 100) < yloc) {
         xloc += 35;
         yloc += -35;
@@ -110,9 +112,9 @@ class Routes extends Airports { //Routes class inherits from Airports class
       currenty = yloc;
       fill(c);
       rect(xloc, yloc, 5, 10);
-      if (xposZ+random(-100, 100) < xloc && yposZ+random(-100, 100) < yloc) {       //objects will move towards the center.
-        xloc += -20;                                 //the direction in which the objects will move is relative to their
-        yloc += -20;                                 //current position in the canvas.
+      if (xposZ+random(-100, 100) < xloc && yposZ+random(-100, 100) < yloc) { 
+        xloc += -20;
+        yloc += -20;
       } else if (xposZ+random(-100, 100) > xloc && yposZ+random(-100, 100) < yloc) {
         xloc += 20;
         yloc += -20;
@@ -129,12 +131,12 @@ class Routes extends Airports { //Routes class inherits from Airports class
   void displayRoute() {          //representing routes as rectangles
     if (mousePressed) {
       if (currentx != 0 && currenty !=0) {
-        fill(240, 57, 100);
+        fill(240, 57, 100);                 //color of rectangles changes after mouse is pressed
         rect(currentx, currenty, 5, 10);
         // print(currentx);
         if (centerX < currentx && centerY < currenty) {       //objects will move towards the center.
-          currentx += -20;                                 //the direction in which the objects will move is relative to their
-          currenty += -20;                           //current position in the canvas.
+          currentx += -20;                                    //the direction in which the objects will move is relative to their
+          currenty += -20;                                    //current position in the canvas.
         } else if (centerX > currentx && centerY < currenty) {
           currentx += 20;
           currenty += -20;
@@ -147,23 +149,22 @@ class Routes extends Airports { //Routes class inherits from Airports class
         }
       }
     } else {
-      this.moveToDest();
+      this.moveToDest();   //executes moveToDest() method
     }
   }
 
-  //--I will be adding more methods related to motion here--
-  void motionY() {
+  void motionY() {      //controls vertical motion of planes
     if (mousePressed) {
-      velocity = 0;
+      velocity = 0;     //no vertical motion when mouse is pressed
     } else {
       currentvel += 0.5;
       currentvel *= random(-2, 2);
     }
   }
 
-  void motionX() {
+  void motionX() {     //controls horizontal motion of planes
     if (mousePressed) {
-      currentx += 0;
+      currentx += 0;     //no horizontal motion when mouse is pressed
     } else {
       xloc += currentspeed;
       // xloc = newX;
